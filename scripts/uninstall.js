@@ -10,7 +10,7 @@ child.stdout.on('data', (data) => {
 });
 
 child.stderr.on('data', (data) => {
-    if (data.indexOf('ERROR:') !== -1) {
+    if (data.indexOf('ERROR:') !== -1 || data.indexOf('FATAL:') !== -1) {
         errors.push(data);
         console.log(chalk.red(`stderr: ${data}`));
     } else {
