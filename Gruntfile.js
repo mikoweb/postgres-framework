@@ -16,6 +16,10 @@ module.exports = function (grunt) {
                     'src/schema_drop.sql'
                 ],
                 dest: 'scripts/uninstall.sql'
+            },
+            testsInstall: {
+                src: ['tests/**.sql'],
+                dest: 'scripts/tests_install.sql'
             }
         }
     });
@@ -24,6 +28,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'concat:install',
-        'concat:uninstall'
+        'concat:uninstall',
+        'concat:testsInstall'
     ]);
 };
