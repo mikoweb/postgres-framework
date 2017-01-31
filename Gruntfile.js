@@ -5,7 +5,8 @@ module.exports = function (grunt) {
             install: {
                 src: [
                     'plpgunit/install/1.install-unit-test.sql',
-                    'src/schema_create.sql'
+                    'src/schema_create.sql',
+                    'src/functions/**.sql'
                 ],
                 dest: 'scripts/install.sql'
             },
