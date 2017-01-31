@@ -970,3 +970,5 @@ RETURNS VOID AS $$
 $$
 LANGUAGE plpgsql;
 
+
+CREATE SCHEMA IF NOT EXISTS framework;
