@@ -18,7 +18,7 @@ module.exports = function (grunt) {
                 dest: 'scripts/uninstall.sql'
             },
             testsInstall: {
-                src: ['tests/**.sql'],
+                src: ['tests/functions/**.sql'],
                 dest: 'scripts/tests_install.sql'
             }
         }
