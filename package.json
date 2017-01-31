@@ -1,0 +1,12 @@
+{
+  "engines": {
+    "node": ">4.2.0"
+  },
+  "scripts": {
+    "grunt": "grunt"
+  },
+  "devDependencies": {
+    "grunt": "~1.0",
+    "grunt-contrib-concat": "~1.0"
+  }
+}
