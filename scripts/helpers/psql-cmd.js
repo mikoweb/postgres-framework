@@ -8,12 +8,15 @@ module.exports = {
      * @return {Command}
      */
     createProgram: (version, program) => {
-        const cmd = program || require('commander')
+        const cmd = program || require('commander');
+
+        cmd
             .version(version)
             .option('--db_name [type]', 'Database name.')
             .option('--db_user [type]', 'Database user.')
             .option('--db_host [type]', 'Database host.')
-            .parse(process.argv);
+            .parse(process.argv)
+        ;
 
         if (cmd.db_name === undefined) {
             console.log(chalk.red('Option --db_name is required.'));
