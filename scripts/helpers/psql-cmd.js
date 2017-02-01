@@ -47,9 +47,10 @@ module.exports = {
     /**
      * @param {ChildProcess} child
      * @param {string} successMessage
+     * @param {Function} [onClose]
      * @return {ChildProcess}
      */
-    execStandardCase: (child, successMessage) => {
+    execStandardCase: (child, successMessage, onClose = ()=>{}) => {
         const errors = [];
 
         child.stdout.on('data', (data) => {
@@ -71,6 +72,8 @@ module.exports = {
             } else {
                 console.log(chalk.red('Occurred ' + errors.length + ' errors.'));
             }
+
+            onClose(code, errors);
         });
 
         return child;
