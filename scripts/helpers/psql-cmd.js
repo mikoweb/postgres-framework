@@ -1,14 +1,14 @@
 const spawn = require('cross-spawn'),
-    program = require('commander'),
     chalk = require('chalk');
 
 module.exports = {
     /**
      * @param {string} version
+     * @param {Command} [program]
      * @return {Command}
      */
-    createProgram: (version) => {
-        const cmd = program
+    createProgram: (version, program) => {
+        const cmd = program || require('commander')
             .version(version)
             .option('--db_name [type]', 'Database name.')
             .option('--db_user [type]', 'Database user.')
