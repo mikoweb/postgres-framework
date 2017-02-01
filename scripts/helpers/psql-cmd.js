@@ -15,12 +15,12 @@ module.exports = {
             .option('--db_host [type]', 'Database host.')
             .parse(process.argv);
 
-        if (program.db_name === undefined) {
+        if (cmd.db_name === undefined) {
             console.log(chalk.red('Option --db_name is required.'));
             process.exit(1);
         }
 
-        if (program.db_user === undefined) {
+        if (cmd.db_user === undefined) {
             console.log(chalk.red('Option --db_user is required.'));
             process.exit(1);
         }
