@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION unit_tests.check_url()
+CREATE OR REPLACE FUNCTION unit_tests.check_url_test()
 RETURNS test_result AS $$
 DECLARE message test_result;
 DECLARE result boolean;
@@ -64,7 +64,7 @@ BEGIN
     END IF;
 
     SELECT check_url INTO result FROM framework.check_url('aąbcćdeęfg://aaałśóŋŋŋ.ąę');
-    IF result = TRUE THEN
+    IF result = FALSE THEN
         SELECT assert.fail('Value "aąbcćdeęfg://aaałśóŋŋŋ.ąę" is valid url.') INTO message;
         RETURN message;
     END IF;
