@@ -15,6 +15,7 @@ module.exports = {
             .option('--db_name [type]', 'Database name.')
             .option('--db_user [type]', 'Database user.')
             .option('--db_host [type]', 'Database host.')
+            .option('--db_port [type]', 'Database port.')
             .parse(process.argv)
         ;
 
@@ -40,6 +41,10 @@ module.exports = {
 
         if (program.db_host !== undefined) {
             options.push('-h', program.db_host);
+        }
+
+        if (program.db_port !== undefined) {
+            options.push('-p', program.db_port);
         }
 
         return spawn('psql', options);
