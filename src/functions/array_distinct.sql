@@ -1,5 +1,5 @@
 -- Eliminate duplicate array values
-CREATE FUNCTION framework.array_distinct(
+CREATE OR REPLACE FUNCTION framework.array_distinct(
     anyarray, -- input array
     boolean DEFAULT false -- flag to ignore nulls
 ) RETURNS anyarray AS $f$
