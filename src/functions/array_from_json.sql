@@ -6,6 +6,7 @@ RETURNS text[] AS $$
     DECLARE item json;
     DECLARE item_value text;
 BEGIN
+    arr := ARRAY[]::TEXT[];
     FOR item IN SELECT * FROM json_array_elements(json_arr)
     LOOP
         item_value := item::text;

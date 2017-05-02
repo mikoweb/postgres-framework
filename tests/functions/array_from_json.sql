@@ -6,7 +6,14 @@ BEGIN
     SELECT framework.array_from_json('["foo", "bar"]') INTO arr;
 
     IF arr <> ARRAY['foo', 'bar'] THEN
-        SELECT assert.fail('Unexpected array value') INTO message;
+        SELECT assert.fail('Expected array: ["foo", "bar"]') INTO message;
+        RETURN message;
+    END IF;
+
+    SELECT framework.array_from_json('[]') INTO arr;
+
+    IF arr <> ARRAY[]::TEXT[] THEN
+        SELECT assert.fail('Expected empty array, got null') INTO message;
         RETURN message;
     END IF;
 
