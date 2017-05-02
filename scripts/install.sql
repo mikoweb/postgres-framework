@@ -973,6 +973,16 @@ LANGUAGE plpgsql;
 
 CREATE SCHEMA IF NOT EXISTS framework;
 
+-- Eliminate duplicate array values
+CREATE FUNCTION framework.array_distinct(
+    anyarray, -- input array
+    boolean DEFAULT false -- flag to ignore nulls
+) RETURNS anyarray AS $f$
+    SELECT array_agg(DISTINCT x)
+    FROM unnest($1) t(x)
+    WHERE CASE WHEN $2 THEN x IS NOT NULL ELSE true END;
+$f$ LANGUAGE SQL IMMUTABLE;
+
 -- http://stackoverflow.com/questions/2568842/jquery-url-validator
 -- http://blog.mattheworiordan.com/post/13174566389/url-regular-expression-for-links-with-or-without
 CREATE OR REPLACE FUNCTION
