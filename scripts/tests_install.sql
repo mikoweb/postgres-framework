@@ -10,6 +10,14 @@ BEGIN
         RETURN message;
     END IF;
 
+    SELECT framework.array_distinct(ARRAY[]::TEXT[], TRUE) INTO arr;
+    SELECT framework.array_distinct(ARRAY[]::INTEGER[], TRUE, ARRAY[]::INTEGER[]) INTO arr;
+
+    IF arr IS NULL THEN
+        SELECT assert.fail('Expected empty array, got null') INTO message;
+        RETURN message;
+    END IF;
+
     SELECT assert.ok('framework.array_distinct is OK') INTO message;
     RETURN message;
 END;
