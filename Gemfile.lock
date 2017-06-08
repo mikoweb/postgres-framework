@@ -1,0 +1,13 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    schema-evolution-manager (0.9.34)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  schema-evolution-manager (~> 0.9.34)
+
+BUNDLED WITH
+   1.15.1
