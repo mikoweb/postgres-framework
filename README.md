@@ -13,7 +13,7 @@ Created based on:
 
 ## Add script
 
-    bundle exec bin/sem-add-safe ./new-script.sql
+    bundle exec sem-add-safe ./new-script.sql
 
 ## Applying changes to your local database
 
