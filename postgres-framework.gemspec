@@ -6,6 +6,7 @@ Gem::Specification.new do |s|
   s.summary           = 'PostgreSQL Framework'
   s.description       = 'It\'s simple framework for PostgreSQL database with unit tests and versioning.'
   s.homepage          = 'https://github.com/mikoweb/postgres-framework'
+  s.add_dependency    = 'schema-evolution-manager', '~> 0.9.34'
   s.files             = %w[.gitmodules LICENSE README.md]
   s.files             += Dir.glob('bin/**/*')
   s.files             += Dir.glob('plpgunit/**/*')
