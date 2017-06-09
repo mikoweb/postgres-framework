@@ -1,3 +1,8 @@
+PATH
+  remote: .
+  specs:
+    postgres-framework (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -7,6 +12,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  postgres-framework!
   schema-evolution-manager (~> 0.9.34)
 
 BUNDLED WITH
