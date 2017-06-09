@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+# == Adds a database framework scripts to this repository.
+#
+# == Usage
+#  sem-add-framework
+#
+# == Example
+#  sem-add-framework
+#
+
+require 'schema-evolution-manager'
+require 'fileutils'
+
+scripts_dir = File.join(`pwd`.strip, 'scripts')
+SchemaEvolutionManager::Library.ensure_dir!(scripts_dir)
+
+Dir.glob(File.dirname(__FILE__) + '/../scripts/*.sql') do |file|
+  target = File.join(scripts_dir, File.basename(file))
+  FileUtils.cp(file, target)
+  SchemaEvolutionManager::Library.system_or_error("git add #{target}")
+end

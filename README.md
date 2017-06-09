@@ -11,6 +11,10 @@ Created based on:
 
     bundle install
 
+## Add framework scripts
+
+    bundle exec sem-add-framework
+
 ## Add script
 
     bundle exec sem-add-safe ./new-script.sql
